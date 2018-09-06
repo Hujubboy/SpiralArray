@@ -1,7 +1,16 @@
 package com.lge.lib;
 
-import java.util.Arrays;
 import java.util.Scanner;
+/*
+0, 0 exception
+장애물 위치 exception
+mLoc 이름
+R,D,L,U 이름
+blockSize 이름
+mCount 예외상황 불필요
+10 magic number
+입력을 x, y 잘 못 받음
+재귀 불필요*/
 
 public class MyClass {
     public static void main(String[] args) {
@@ -19,8 +28,8 @@ public class MyClass {
         blockSize = scan.nextInt();
 
         map = new String[mapSizeX][mapSizeY];
-        for(int i = 0; i < mapSizeX; i++) {
-            for (int j = 0; j <mapSizeY; j++) {
+        for (int i = 0; i < mapSizeX; i++) {
+            for (int j = 0; j < mapSizeY; j++) {
                 map[i][j] = "-";
             }
         }
@@ -40,11 +49,11 @@ public class MyClass {
         Player player = new Player();
         player.play(map);
 
-        for(int j = 0; j < mapSizeX; j++) {
-            for (int i = 0; i <mapSizeY; i++) {
+        for (int j = 0; j < mapSizeY; j++) {
+            for (int i = 0; i < mapSizeX; i++) {
                 try {
-                    System.out.print(map[i][j] + (Integer.parseInt(map[i][j]) < 10 ? "  " : " "));
-                }catch (NumberFormatException e) {
+                    System.out.print(map[i][j] + "\t");
+                } catch (NumberFormatException e) {
                     System.out.print(map[i][j] + "  ");
                 }
             }
